@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>מיפוי יכולות מקצועיות</title>
+<title>Yair Felig — Seniority Mapping</title>
 <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <style>
@@ -58,8 +58,33 @@ body::after {
 /* ── Hero ─────────────────────────────────────────────── */
 .hero {
   position: relative; z-index: 1;
-  text-align: center;
-  padding: 64px 24px 52px;
+  padding: 64px 60px 56px;
+  max-width: 1120px;
+  margin: 0 auto;
+}
+.hero-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 48px;
+}
+.hero-text { flex: 1; text-align: right; }
+@media(max-width: 700px) {
+  .hero-inner { flex-direction: column-reverse; }
+  .hero-text { text-align: center; }
+  .hero-avatar { width: 160px; height: 160px; }
+}
+.hero-avatar {
+  width: 260px; height: 260px;
+  border-radius: 50%;
+  object-fit: cover; object-position: top center;
+  border: 5px solid #fff;
+  box-shadow: 0 12px 48px rgba(99,102,241,.35), 0 0 0 8px rgba(99,102,241,.12);
+  flex-shrink: 0;
+}
+.hero-name {
+  font-size: 15px; font-weight: 700; color: var(--muted);
+  margin-bottom: 6px; letter-spacing: .5px;
 }
 .hero-badge {
   display: inline-block;
@@ -296,9 +321,15 @@ body::after {
 <body>
 
 <div class="hero">
-  <div class="hero-badge">Reichman Mentoring · 2026</div>
-  <h1>מיפוי היכולות שלי</h1>
-  <div class="hero-sub">לחצו על כרטיסייה לפרטים המלאים</div>
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-name">Yair Felig</div>
+      <div class="hero-badge">Reichman Mentoring · 2026</div>
+      <h1>Seniority Mapping</h1>
+      <div class="hero-sub">לחצו על כרטיסייה לפרטים המלאים</div>
+    </div>
+    <img class="hero-avatar" src="https://raw.githubusercontent.com/yfelig/professional-pics/main/NW6A6165%202.JPG" alt="Yair Felig">
+  </div>
 </div>
 
 <div class="container">
@@ -469,7 +500,7 @@ const scores = roles.map(r => r.score);
 new Chart(document.getElementById('radarChart'), {
   type: 'radar',
   data: {
-    labels: roles.map(r => r.name.split(' ')[0]),
+    labels: roles.map(r => r.name),
     datasets: [{
       label: 'ציון',
       data: scores,
@@ -506,7 +537,7 @@ const barColors = {
 new Chart(document.getElementById('barChart'), {
   type: 'bar',
   data: {
-    labels: roles.map(r => r.icon + ' ' + r.name.split(' ')[0]),
+    labels: roles.map(r => r.icon + ' ' + r.name),
     datasets: [{
       label: 'ציון',
       data: scores,
