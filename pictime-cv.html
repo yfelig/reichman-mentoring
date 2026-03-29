@@ -1,0 +1,369 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yair Felig — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --bg:     #f7f5f1;
+  --ink:    #1c1c1c;
+  --muted:  #6b6560;
+  --accent: #7a6040;
+  --rule:   #d8cfbf;
+  --serif:  'Cormorant Garamond', Georgia, serif;
+  --sans:   'Lato', Helvetica, Arial, sans-serif;
+}
+
+body {
+  background: var(--bg);
+  color: var(--ink);
+  font-family: var(--sans);
+  font-size: 9pt;
+  line-height: 1.5;
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 40px 60px;
+}
+
+/* ── Header ── */
+.header {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+  margin-bottom: 20px;
+}
+
+.header-photo {
+  flex-shrink: 0;
+  width: 92px;
+  height: 92px;
+  border-radius: 50%;
+  border: 2px solid var(--rule);
+  background-image: url('photo.jpg');
+  background-size: 110%;
+  background-position: 80% 0%;
+}
+
+.header-text {
+  flex: 1;
+}
+
+.name {
+  font-family: var(--serif);
+  font-size: 34pt;
+  font-weight: 300;
+  letter-spacing: 0.06em;
+  color: var(--ink);
+  margin-bottom: 6px;
+}
+
+hr.crown {
+  border: none;
+  border-top: 1.5px solid var(--accent);
+  width: 44px;
+  margin: 0 0 8px;
+}
+
+.contact {
+  font-family: var(--sans);
+  font-size: 8pt;
+  color: var(--muted);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.contact span {
+  color: var(--rule);
+  margin: 0 8px;
+}
+
+/* ── Full-width rule ── */
+hr.full {
+  border: none;
+  border-top: 1px solid var(--rule);
+  margin: 12px 0;
+}
+
+/* ── Summary ── */
+.summary {
+  font-family: var(--serif);
+  font-size: 11pt;
+  font-weight: 300;
+  font-style: italic;
+  color: #3d3730;
+  text-align: center;
+  line-height: 1.6;
+  margin-bottom: 12px;
+  padding: 0 16px;
+}
+
+.summary strong {
+  font-style: normal;
+  font-weight: 500;
+  color: var(--ink);
+}
+
+/* ── Sections ── */
+section {
+  margin-bottom: 16px;
+}
+
+.section-title {
+  font-family: var(--serif);
+  font-size: 7pt;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 8px;
+}
+
+/* ── Experience entries ── */
+.entry {
+  margin-bottom: 12px;
+}
+
+.entry:last-child {
+  margin-bottom: 0;
+}
+
+.entry-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 1px;
+}
+
+.entry-org {
+  font-family: var(--sans);
+  font-weight: 700;
+  font-size: 9.5pt;
+}
+
+.entry-date {
+  font-size: 8pt;
+  color: var(--muted);
+  font-weight: 300;
+  white-space: nowrap;
+  margin-left: 12px;
+}
+
+.entry-title {
+  font-size: 8.5pt;
+  color: var(--muted);
+  font-style: italic;
+  margin-bottom: 6px;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+ul li {
+  position: relative;
+  padding-left: 14px;
+  margin-bottom: 2px;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: #2a2520;
+}
+
+ul li::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+  font-weight: 300;
+}
+
+/* ── Education ── */
+.edu-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  margin-bottom: 2px;
+}
+
+.edu-school {
+  font-weight: 700;
+  font-size: 9.5pt;
+}
+
+.edu-detail {
+  font-size: 8.5pt;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+/* ── Skills ── */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 5px 24px;
+}
+
+.skill-item {
+  font-size: 8.5pt;
+  color: var(--muted);
+  line-height: 1.45;
+}
+
+.skill-item strong {
+  color: var(--ink);
+  font-weight: 700;
+  display: block;
+  font-size: 8pt;
+  letter-spacing: 0.02em;
+}
+
+/* ── Volunteering ── */
+.vol-item {
+  font-size: 9pt;
+  color: #2a2520;
+  margin-bottom: 4px;
+  padding-left: 14px;
+  position: relative;
+}
+
+.vol-item::before {
+  content: '–';
+  position: absolute;
+  left: 0;
+  color: var(--accent);
+}
+
+/* ── Print ── */
+@media print {
+  body {
+    background: white;
+    padding: 36px 48px;
+    font-size: 9pt;
+  }
+  @page {
+    margin: 0;
+    size: A4;
+  }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<div class="header">
+  <div class="header-photo"></div>
+  <div class="header-text">
+    <div class="name">Yair Felig</div>
+    <hr class="crown">
+    <div class="contact">
+      Tel Aviv, Israel <span>·</span> +972 52 597 2080 <span>·</span> yfelig@gmail.com
+    </div>
+  </div>
+</div>
+
+<hr class="full">
+
+<!-- Summary -->
+<p class="summary">
+  Product operations and customer success lead, 4+ years at an AI startup.
+  <strong>$400K+ in vendor and partner budgets</strong>, 1,200+ research sessions with children, custom demos shipped for every sales conversation.<br>
+  I pick things up fast, usually on my own. AI tools, workflows, systems. I'm genuinely curious about how things work and what's newly possible.
+</p>
+
+<hr class="full">
+
+<!-- Experience -->
+<section>
+  <div class="section-title">Experience</div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org">UG Labs</span>
+      <span class="entry-date">May 2022 – Present · Tel Aviv</span>
+    </div>
+    <div class="entry-title">Product Operations Lead · Customer Success · Sales</div>
+    <ul>
+      <li>Ran a $100K field deployment solo in Boise, Idaho. No existing network, no team, no infrastructure. Recruited locally, cold-contacted daycares and universities, ran Facebook campaigns, and delivered 500 research sessions in 6 months.</li>
+      <li>Managed a $250K engagement with Applause — defined test requirements, built screening and consent protocols, ran iterations, and owned delivery as the company's sole contact.</li>
+      <li>Ran the full RFQ for a $50K annotation contract: market survey, quality sampling, vendor evaluation, negotiation, and delivery oversight.</li>
+      <li>Led 1,200+ research sessions with children (ages 2.5–13) — designed the studies, ran every session, wrote the insights that shaped the product.</li>
+      <li>Managing 15–20 active sales accounts. Builds a working demo for every prospect before the first real call — custom AI characters, real interactions, not slides. Prospects can try the thing rather than picture it.</li>
+      <li>Designed and ran a public workshop teaching kids and parents to build AI experiences — built the site, ran promotion, facilitated live. Went well enough that it's now becoming a company product.</li>
+      <li>Set up and ran a two-camera video production rig, edited sessions into promotional reels and pitch materials, and ran photo shoots from casting through post. Loves film. Has edited video since long before it was part of the job.</li>
+    </ul>
+  </div>
+
+  <div class="entry">
+    <div class="entry-header">
+      <span class="entry-org">Israel Defense Forces — Paratroopers, 101st Brigade</span>
+      <span class="entry-date">2016 – 2022</span>
+    </div>
+    <div class="entry-title">Company Commander · Final rank: Major</div>
+    <ul>
+      <li>Commanded 160 soldiers from induction to combat readiness. Designed the training program, managed scheduling across all activities, and owned every outcome.</li>
+      <li>Rose from the lowest enlisted rank to company commander in 6 years.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- Education -->
+<section>
+  <div class="section-title">Education</div>
+  <div class="entry">
+    <div class="edu-row">
+      <span class="edu-school">Reichman University (IDC Herzliya)</span>
+      <span class="entry-date">2019 – 2022</span>
+    </div>
+    <div class="edu-detail">B.Sc. Psychology — Human-Computer Interaction focus · GPA: 94</div>
+    <div class="edu-detail" style="margin-top:3px;">
+      MILAB HCI Research Lab, 2.5 years (junior → lead researcher) &nbsp;·&nbsp;
+      Founded the Happiness Club — grew to 150+ members, the largest student club at IDC &nbsp;·&nbsp;
+      3rd Place, All-Israel National Debate Championship
+    </div>
+  </div>
+</section>
+
+<!-- Skills -->
+<section>
+  <div class="section-title">Skills</div>
+  <div class="skills-grid">
+    <div class="skill-item">
+      <strong>CRM & Sales Ops</strong>
+      HubSpot, Apollo, pipeline management
+    </div>
+    <div class="skill-item">
+      <strong>Operations</strong>
+      Field deployment, vendor procurement, RFQ processes
+    </div>
+    <div class="skill-item">
+      <strong>Research</strong>
+      Study design, session facilitation, synthesis
+    </div>
+    <div class="skill-item">
+      <strong>Media</strong>
+      Video editing, multi-camera production, photo shoots
+    </div>
+    <div class="skill-item">
+      <strong>Automation & Tech</strong>
+      n8n, Vercel, React, FastAPI, REST APIs
+    </div>
+    <div class="skill-item">
+      <strong>Languages</strong>
+      Hebrew (native) · English (fluent)
+    </div>
+  </div>
+</section>
+
+<!-- Volunteering -->
+<section>
+  <div class="section-title">Also</div>
+  <div class="vol-item">Hashomer Hachadash — Shepherd. Responsible for 130 sheep and goats (age 18, before military service).</div>
+  <div class="vol-item">HaGal Sheli (The Wave Project) — Facilitator, empowerment programs for trauma survivors, 2025.</div>
+</section>
+
+</body>
+</html>
