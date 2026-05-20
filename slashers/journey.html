@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Slashers — מסע קלפלי</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:    #1B4FD8;
+  --blue-dk: #0f2a6e;
+  --blue-md: #3b82f6;
+  --blue-lt: #eff6ff;
+  --blue-bd: #bfdbfe;
+  --text:    #1e293b;
+  --muted:   #64748b;
+  --white:   #ffffff;
+  --border:  #e2e8f0;
+  --green:   #16a34a;
+  --amber:   #d97706;
+}
+
+body {
+  font-family: 'Heebo', Arial, sans-serif;
+  background: var(--blue-lt);
+  color: var(--text);
+  min-height: 100vh;
+  direction: rtl;
+}
+
+/* ── Hero ─────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 60%, #2563eb 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner {
+  position: relative;
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px 40px 36px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 32px;
+}
+@media(max-width: 680px) {
+  .hero-inner { flex-direction: column; padding: 28px 20px 24px; align-items: flex-start; }
+}
+.hero-text { flex: 1; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,.65);
+  margin-bottom: 10px;
+}
+.hero-title {
+  font-size: clamp(28px, 5vw, 42px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.hero-sub {
+  font-size: 15px;
+  color: rgba(255,255,255,.75);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+.hero-tags {
+  display: flex; gap: 8px; flex-wrap: wrap;
+}
+.hero-tag {
+  display: inline-block;
+  padding: 4px 14px;
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  border-radius: 99px;
+  font-size: 12px; font-weight: 600;
+  color: #fff;
+}
+.hero-logo {
+  flex-shrink: 0;
+  display: flex; flex-direction: column; align-items: center; gap: 12px;
+}
+.hero-logo img {
+  height: 52px;
+  filter: brightness(0) invert(1);
+  opacity: .9;
+}
+.hero-project-badge {
+  background: rgba(255,255,255,.15);
+  border: 1.5px solid rgba(255,255,255,.3);
+  border-radius: 12px;
+  padding: 10px 18px;
+  text-align: center;
+}
+.hero-project-label {
+  font-size: 9px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 3px;
+}
+.hero-project-name {
+  font-size: 18px; font-weight: 900; color: #fff;
+}
+
+/* ── Container ────────────────────────────────── */
+.container {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+/* ── Stats bar ────────────────────────────────── */
+.stats-bar {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
+  gap: 12px;
+}
+.stat-card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 16px;
+  text-align: center;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+.stat-number {
+  font-size: 30px; font-weight: 900; line-height: 1;
+  margin-bottom: 5px;
+  color: var(--blue);
+}
+.stat-number.muted { color: var(--muted); }
+.stat-label { font-size: 12px; font-weight: 600; color: var(--muted); }
+
+/* ── Cards ────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+.card-title {
+  font-size: 14px; font-weight: 800; color: var(--blue-dk);
+  letter-spacing: .5px; text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title::after {
+  content: '';
+  flex: 1; height: 1.5px;
+  background: linear-gradient(90deg, var(--blue-bd), transparent);
+}
+
+/* ── Phase roadmap ────────────────────────────── */
+.phases {
+  display: flex; gap: 0;
+  position: relative;
+}
+.phases::before {
+  content: '';
+  position: absolute;
+  top: 24px; right: 24px; left: 24px;
+  height: 2px;
+  background: var(--blue-bd);
+  z-index: 0;
+}
+.phase {
+  flex: 1;
+  display: flex; flex-direction: column; align-items: center;
+  gap: 12px;
+  position: relative; z-index: 1;
+}
+.phase-dot {
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 18px; font-weight: 900;
+  border: 3px solid var(--blue-bd);
+  background: var(--white);
+  color: var(--muted);
+}
+.phase.active .phase-dot {
+  background: var(--blue);
+  border-color: var(--blue);
+  color: #fff;
+  box-shadow: 0 0 0 6px rgba(27,79,216,.15);
+}
+.phase.done .phase-dot {
+  background: var(--green);
+  border-color: var(--green);
+  color: #fff;
+}
+.phase-label {
+  font-size: 12px; font-weight: 700; color: var(--muted);
+  text-align: center; line-height: 1.4;
+  max-width: 100px;
+}
+.phase.active .phase-label { color: var(--blue-dk); }
+.phase-desc {
+  font-size: 11px; color: var(--muted);
+  text-align: center; line-height: 1.5;
+  max-width: 120px;
+}
+
+/* ── Project card ─────────────────────────────── */
+.project-card {
+  background: linear-gradient(135deg, var(--blue-dk), var(--blue));
+  border: none;
+  border-radius: 20px;
+  padding: 28px 32px;
+  color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 20px;
+  flex-wrap: wrap;
+}
+.project-info {}
+.project-eyebrow {
+  font-size: 10px; font-weight: 700; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.6);
+  margin-bottom: 6px;
+}
+.project-name {
+  font-size: 28px; font-weight: 900; color: #fff;
+  margin-bottom: 6px;
+}
+.project-desc {
+  font-size: 14px; color: rgba(255,255,255,.75); line-height: 1.6;
+}
+.project-roles {
+  display: flex; flex-direction: column; gap: 8px; min-width: 180px;
+}
+.project-role {
+  background: rgba(255,255,255,.12);
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 10px;
+  padding: 8px 14px;
+  font-size: 12px;
+}
+.project-role-name { font-weight: 800; color: #fff; }
+.project-role-title { color: rgba(255,255,255,.65); font-size: 11px; }
+
+/* ── Timeline ─────────────────────────────────── */
+.timeline {
+  display: flex; flex-direction: column;
+  gap: 0;
+  position: relative;
+}
+.timeline::before {
+  content: '';
+  position: absolute;
+  top: 0; bottom: 0;
+  right: 23px;
+  width: 2px;
+  background: var(--blue-bd);
+  z-index: 0;
+}
+.tl-item {
+  display: flex; gap: 20px; align-items: flex-start;
+  padding-bottom: 24px;
+  position: relative; z-index: 1;
+}
+.tl-item:last-child { padding-bottom: 0; }
+.tl-dot {
+  flex-shrink: 0;
+  width: 48px; height: 48px;
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px;
+  border: 2px solid var(--blue-bd);
+  background: var(--white);
+  position: relative; z-index: 2;
+}
+.tl-dot.future { background: var(--blue-lt); border-style: dashed; }
+.tl-dot.session { background: var(--blue); border-color: var(--blue); color: #fff; font-weight: 900; font-size: 14px; }
+.tl-dot.milestone { background: var(--green); border-color: var(--green); color: #fff; }
+
+.tl-card {
+  flex: 1;
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 16px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.04);
+}
+.tl-card.future {
+  background: var(--blue-lt);
+  border-color: var(--blue-bd);
+  border-style: dashed;
+}
+.tl-date-row {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 8px;
+}
+.tl-date { font-size: 12px; font-weight: 700; color: var(--muted); }
+.tl-type {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 10px; font-weight: 800; letter-spacing: 1px; text-transform: uppercase;
+  border-radius: 99px;
+}
+.tl-type.session { background: #dbeafe; color: #1d4ed8; }
+.tl-type.task    { background: #fef3c7; color: #92400e; }
+.tl-type.revenue { background: #dcfce7; color: #15803d; }
+.tl-type.next    { background: #e0e7ff; color: #4338ca; border: 1px dashed #a5b4fc; }
+.tl-title {
+  font-size: 16px; font-weight: 800; color: var(--blue-dk);
+  margin-bottom: 6px; line-height: 1.4;
+}
+.tl-desc {
+  font-size: 13px; color: var(--text); line-height: 1.7;
+}
+.tl-desc.muted { color: var(--muted); font-style: italic; }
+
+/* ── Footer ───────────────────────────────────── */
+.footer-note {
+  text-align: center;
+  font-size: 13px; color: var(--muted);
+  padding: 12px 0;
+}
+.footer-note a { color: var(--blue); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="hero-text">
+      <div class="hero-eyebrow">Tech Troop · Slashers · Cohort 2026</div>
+      <h1 class="hero-title">מסע הסלאשרים</h1>
+      <div class="hero-sub">יאיר ורבקה. 10 שבועות. מרעיון להכנסה ראשונה.</div>
+      <div class="hero-tags">
+        <span class="hero-tag">&#128197; רביעי 17:00–19:30</span>
+        <span class="hero-tag">&#127760; אונליין</span>
+        <span class="hero-tag">&#128101; 40 משתתפים</span>
+      </div>
+    </div>
+    <div class="hero-logo">
+      <img src="https://tech-troop.co.il/wp-content/uploads/2024/03/cropped-Tech-Troop_logo-color-blue-1.png" alt="Tech Troop">
+      <div class="hero-project-badge">
+        <div class="hero-project-label">הפרויקט שלנו</div>
+        <div class="hero-project-name">קלפלי &#x1F0CF;</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Stats -->
+  <div class="stats-bar">
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-label">מפגשים הושלמו</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number muted">10</div>
+      <div class="stat-label">שבועות בסך הכל</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number muted">0</div>
+      <div class="stat-label">הכנסה ראשונה</div>
+    </div>
+    <div class="stat-card">
+      <div class="stat-number">1</div>
+      <div class="stat-label">שלב נוכחי</div>
+    </div>
+  </div>
+
+  <!-- Project -->
+  <div class="project-card">
+    <div class="project-info">
+      <div class="project-eyebrow">הפרויקט</div>
+      <div class="project-name">קלפלי &#x1F0CF;</div>
+      <div class="project-desc">תמונות → חפיסות קלפים מותאמות אישית.<br>המרת זיכרונות ורגעים לחפיסת קלפים ייחודית.</div>
+    </div>
+    <div class="project-roles">
+      <div class="project-role">
+        <div class="project-role-name">רבקה</div>
+        <div class="project-role-title">CEO · מוצר (Lovable.dev)</div>
+      </div>
+      <div class="project-role">
+        <div class="project-role-name">יאיר</div>
+        <div class="project-role-title">GTM · שיווק · מכירות</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Phase roadmap -->
+  <div class="card">
+    <div class="card-title">&#128205; מפת השלבים</div>
+    <div class="phases">
+      <div class="phase active">
+        <div class="phase-dot">1</div>
+        <div class="phase-label">אוריינטציה</div>
+        <div class="phase-desc">מיפוי חוזקות, אימות רעיון, מחקר שוק, ערך ייחודי</div>
+      </div>
+      <div class="phase">
+        <div class="phase-dot">2</div>
+        <div class="phase-label">בניית עסק</div>
+        <div class="phase-desc">רישום, מודל תמחור, מכירות ראשונות</div>
+      </div>
+      <div class="phase">
+        <div class="phase-dot">3</div>
+        <div class="phase-label">צמיחה</div>
+        <div class="phase-desc">ניהול יעיל, כלי AI, הצגה ללקוחות</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Timeline -->
+  <div class="card">
+    <div class="card-title">&#128336; ציר הזמן</div>
+    <div class="timeline">
+
+      <!-- Session 1 -->
+      <div class="tl-item">
+        <div class="tl-dot session">1</div>
+        <div class="tl-card">
+          <div class="tl-date-row">
+            <span class="tl-date">13.5.2026</span>
+            <span class="tl-type session">מפגש</span>
+          </div>
+          <div class="tl-title">פתיחה, היכרות ואיקיגאי</div>
+          <div class="tl-desc">מפגש כיפי ורגוע. הכרנו את הקבוצה (40 משתתפים), שמענו על התוכנית ועל מה היא מבטיחה. רבקה בנתה כלי אינטראקטיבי לאיקיגאי — יאיר מילא דרכו את השאלון המלא ויצר פוסטר אישי. נסיים בתחושה טובה ומרגשת.</div>
+          <div style="margin-top: 12px;">
+            <a href="session-1.html" style="display:inline-block; padding: 7px 18px; background: var(--blue); color: #fff; border-radius: 8px; font-size: 12px; font-weight: 700; text-decoration: none;">סיכום מלא ←</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- Next session -->
+      <div class="tl-item">
+        <div class="tl-dot future">📅</div>
+        <div class="tl-card future">
+          <div class="tl-date-row">
+            <span class="tl-date">20.5.2026</span>
+            <span class="tl-type next">הבא</span>
+          </div>
+          <div class="tl-title">מפגש 2 — אימות הרעיון</div>
+          <div class="tl-desc muted">מחקר שוק, הגדרת ה-ICP, ומה קלפלי פותרת בשביל מי.</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="footer-note">
+    מסע זה מתעד את תהליך ה-Slashers של יאיר ורבקה · <a href="https://tech-troop.co.il/freelancers/" target="_blank">Tech Troop</a>
+  </div>
+
+</div>
+</body>
+</html>

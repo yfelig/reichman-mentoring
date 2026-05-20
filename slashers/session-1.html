@@ -1,0 +1,459 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>מפגש 1 — פתיחה ואיקיגאי | Slashers</title>
+<link href="https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --blue:    #1B4FD8;
+  --blue-dk: #0f2a6e;
+  --blue-md: #3b82f6;
+  --blue-lt: #eff6ff;
+  --blue-bd: #bfdbfe;
+  --text:    #1e293b;
+  --muted:   #64748b;
+  --white:   #ffffff;
+  --border:  #e2e8f0;
+  --green:   #16a34a;
+  --amber:   #d97706;
+  --coral:   #e8533f;
+}
+
+body {
+  font-family: 'Heebo', Arial, sans-serif;
+  background: var(--blue-lt);
+  color: var(--text);
+  min-height: 100vh;
+  direction: rtl;
+}
+
+/* ── Hero ─────────────────────────────────────── */
+.hero {
+  background: linear-gradient(135deg, var(--blue-dk) 0%, var(--blue) 60%, #2563eb 100%);
+  color: #fff;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+}
+.hero-inner {
+  position: relative;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 36px 40px 32px;
+}
+@media(max-width: 640px) {
+  .hero-inner { padding: 24px 20px 20px; }
+}
+.hero-back {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 12px; font-weight: 700; color: rgba(255,255,255,.65);
+  text-decoration: none; letter-spacing: .5px;
+  margin-bottom: 20px;
+  transition: color .15s;
+}
+.hero-back:hover { color: #fff; }
+.hero-eyebrow {
+  font-size: 11px; font-weight: 700; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,255,255,.55);
+  margin-bottom: 10px;
+}
+.hero-title {
+  font-size: clamp(26px, 5vw, 40px);
+  font-weight: 900;
+  line-height: 1.15;
+  color: #fff;
+  margin-bottom: 10px;
+}
+.hero-meta {
+  display: flex; align-items: center; gap: 16px; flex-wrap: wrap;
+  font-size: 13px; color: rgba(255,255,255,.7);
+}
+.hero-meta-item { display: flex; align-items: center; gap: 5px; }
+
+/* ── Container ────────────────────────────────── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 20px 60px;
+  display: flex; flex-direction: column; gap: 22px;
+}
+
+/* ── Cards ────────────────────────────────────── */
+.card {
+  background: var(--white);
+  border: 1.5px solid var(--border);
+  border-radius: 20px;
+  padding: 28px 32px;
+  box-shadow: 0 1px 6px rgba(0,0,0,.05);
+}
+@media(max-width: 640px) { .card { padding: 22px 20px; } }
+
+.card-title {
+  font-size: 13px; font-weight: 800; color: var(--blue-dk);
+  letter-spacing: .5px; text-transform: uppercase;
+  margin-bottom: 20px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title::after {
+  content: ''; flex: 1; height: 1.5px;
+  background: linear-gradient(90deg, var(--blue-bd), transparent);
+}
+
+/* ── Vibe banner ──────────────────────────────── */
+.vibe-banner {
+  background: linear-gradient(135deg, #fef9ec, #fef3c7);
+  border: 1.5px solid #fde68a;
+  border-radius: 16px;
+  padding: 20px 28px;
+  display: flex; align-items: center; gap: 16px;
+  font-size: 15px; font-weight: 600; color: #78350f;
+}
+.vibe-emoji { font-size: 32px; flex-shrink: 0; }
+
+/* ── Agenda ───────────────────────────────────── */
+.agenda-list {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.agenda-item {
+  display: flex; align-items: flex-start; gap: 14px;
+}
+.agenda-num {
+  width: 32px; height: 32px; flex-shrink: 0;
+  background: var(--blue); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 13px; font-weight: 900; color: #fff;
+}
+.agenda-text { flex: 1; padding-top: 5px; }
+.agenda-head { font-size: 14px; font-weight: 700; color: var(--blue-dk); }
+.agenda-sub  { font-size: 13px; color: var(--muted); line-height: 1.6; margin-top: 2px; }
+
+/* ── Ikigai ───────────────────────────────────── */
+.ikigai-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+@media(max-width: 600px) { .ikigai-grid { grid-template-columns: 1fr; } }
+
+.ikigai-circle {
+  border-radius: 16px;
+  padding: 18px 20px;
+  position: relative;
+}
+.ikigai-circle.love   { background: #fef2f2; border: 1.5px solid #fecaca; }
+.ikigai-circle.good   { background: #f0fdf4; border: 1.5px solid #bbf7d0; }
+.ikigai-circle.paid   { background: #fef9ec; border: 1.5px solid #fde68a; }
+.ikigai-circle.world  { background: #eff6ff; border: 1.5px solid #bfdbfe; }
+
+.ikigai-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  margin-bottom: 10px;
+}
+.ikigai-circle.love  .ikigai-label  { color: #dc2626; }
+.ikigai-circle.good  .ikigai-label  { color: #16a34a; }
+.ikigai-circle.paid  .ikigai-label  { color: #d97706; }
+.ikigai-circle.world .ikigai-label  { color: #1d4ed8; }
+
+.ikigai-items { list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.ikigai-items li {
+  font-size: 13px; color: var(--text); line-height: 1.5;
+  padding-right: 14px; position: relative;
+}
+.ikigai-items li::before {
+  content: '·'; position: absolute; right: 0;
+  font-weight: 900; color: var(--muted);
+}
+
+.ikigai-poster-note {
+  margin-top: 16px;
+  background: var(--blue-lt);
+  border: 1.5px solid var(--blue-bd);
+  border-radius: 12px;
+  padding: 14px 18px;
+  font-size: 13px; color: var(--blue-dk);
+  display: flex; align-items: center; gap: 10px;
+}
+
+/* ── Rivka's tool ─────────────────────────────── */
+.tool-highlight {
+  background: linear-gradient(135deg, #f0fdf4, #dcfce7);
+  border: 1.5px solid #86efac;
+  border-radius: 16px;
+  padding: 22px 26px;
+  display: flex; gap: 18px; align-items: flex-start;
+}
+.tool-icon { font-size: 36px; flex-shrink: 0; }
+.tool-body {}
+.tool-head { font-size: 16px; font-weight: 800; color: #14532d; margin-bottom: 6px; }
+.tool-desc { font-size: 13px; color: #166534; line-height: 1.7; }
+
+/* ── Quotes ───────────────────────────────────── */
+.quotes-grid {
+  display: flex; flex-direction: column; gap: 12px;
+}
+.quote-item {
+  background: var(--blue-lt);
+  border-right: 4px solid var(--blue);
+  border-radius: 0 12px 12px 0;
+  padding: 14px 18px;
+  display: flex; flex-direction: column; gap: 6px;
+}
+.quote-text {
+  font-size: 15px; font-weight: 600; color: var(--blue-dk);
+  line-height: 1.6;
+}
+.quote-text::before { content: '"'; }
+.quote-text::after  { content: '"'; }
+.quote-who {
+  font-size: 11px; font-weight: 700; letter-spacing: 1px; text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* ── Program box ──────────────────────────────── */
+.program-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+@media(max-width: 560px) { .program-grid { grid-template-columns: 1fr; } }
+
+.program-item {
+  background: var(--blue-lt);
+  border: 1.5px solid var(--blue-bd);
+  border-radius: 12px;
+  padding: 14px 18px;
+}
+.program-item-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 1.5px; text-transform: uppercase;
+  color: var(--blue); margin-bottom: 5px;
+}
+.program-item-val { font-size: 14px; font-weight: 700; color: var(--blue-dk); }
+
+/* ── Next session ─────────────────────────────── */
+.next-card {
+  background: linear-gradient(135deg, var(--blue-dk), var(--blue));
+  border-radius: 20px;
+  padding: 26px 32px;
+  color: #fff;
+  display: flex; align-items: center; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+}
+.next-label {
+  font-size: 10px; font-weight: 800; letter-spacing: 2px; text-transform: uppercase;
+  color: rgba(255,255,255,.6); margin-bottom: 6px;
+}
+.next-title { font-size: 20px; font-weight: 900; color: #fff; margin-bottom: 4px; }
+.next-desc { font-size: 13px; color: rgba(255,255,255,.7); }
+.next-date-badge {
+  background: rgba(255,255,255,.15);
+  border: 1.5px solid rgba(255,255,255,.3);
+  border-radius: 12px;
+  padding: 12px 20px;
+  text-align: center;
+  white-space: nowrap;
+}
+.next-date-main { font-size: 20px; font-weight: 900; color: #fff; }
+.next-date-sub { font-size: 11px; color: rgba(255,255,255,.6); margin-top: 2px; }
+
+/* ── Footer ───────────────────────────────────── */
+.footer-note {
+  text-align: center;
+  font-size: 13px; color: var(--muted);
+  padding: 12px 0;
+}
+.footer-note a { color: var(--blue); text-decoration: none; font-weight: 600; }
+</style>
+</head>
+<body>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-inner">
+    <a href="journey.html" class="hero-back">&#8592; חזרה למסע</a>
+    <div class="hero-eyebrow">Slashers · Tech Troop · מפגש 1</div>
+    <h1 class="hero-title">פתיחה, היכרות ואיקיגאי</h1>
+    <div class="hero-meta">
+      <span class="hero-meta-item">📅 13.5.2026</span>
+      <span class="hero-meta-item">🕔 17:00–19:30</span>
+      <span class="hero-meta-item">🧭 מנחה: אילן שנקר</span>
+      <span class="hero-meta-item">💻 אונליין</span>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+
+  <!-- Vibe banner -->
+  <div class="vibe-banner">
+    <span class="vibe-emoji">✌️</span>
+    <span>מפגש פתיחה כיפי ורגוע. הכרות עם הקבוצה, הסבר על התוכנית, ותרגיל האיקיגאי. נכנסנו למוד יזמי.</span>
+  </div>
+
+  <!-- Agenda -->
+  <div class="card">
+    <div class="card-title">📋 סדר יום</div>
+    <div class="agenda-list">
+      <div class="agenda-item">
+        <div class="agenda-num">1</div>
+        <div class="agenda-text">
+          <div class="agenda-head">על התוכנית</div>
+          <div class="agenda-sub">מה זה Slashers, מה מצפים מאיתנו, מה נקבל — קשרים, סיפוק מקצועי, הכנסה נוספת.</div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-num">2</div>
+        <div class="agenda-text">
+          <div class="agenda-head">הכרת המשתתפים</div>
+          <div class="agenda-sub">40 משתתפים מקבוצות שונות — פגשנו את הקהילה, שמענו מי עובד על מה.</div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-num">3</div>
+        <div class="agenda-text">
+          <div class="agenda-head">ויב ורקע</div>
+          <div class="agenda-sub">הסבר על הפילוסופיה מאחורי התוכנית — לא רק כסף, גם ביטחון עצמי, גמישות וערך אמיתי.</div>
+        </div>
+      </div>
+      <div class="agenda-item">
+        <div class="agenda-num">4</div>
+        <div class="agenda-text">
+          <div class="agenda-head">תרגיל האיקיגאי</div>
+          <div class="agenda-sub">שאלון אינטראקטיבי שבנתה רבקה ● יאיר מילא ✓ ● פוסטר אישי הוכן בסיום.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- About the program -->
+  <div class="card">
+    <div class="card-title">🎯 מה התוכנית מבטיחה</div>
+    <div class="program-grid">
+      <div class="program-item">
+        <div class="program-item-label">קשרים</div>
+        <div class="program-item-val">40 אנשים עם מנטליות יזמית, רשת שתגדל איתנו</div>
+      </div>
+      <div class="program-item">
+        <div class="program-item-label">סיפוק מקצועי</div>
+        <div class="program-item-val">בניית משהו שייצג אותנו, לא רק פרויקט לרזומה</div>
+      </div>
+      <div class="program-item">
+        <div class="program-item-label">הכנסה נוספת</div>
+        <div class="program-item-val">25% מהמשתתפים מניבים הכנסה עוד בתוכנית</div>
+      </div>
+      <div class="program-item">
+        <div class="program-item-label">מה נדרש</div>
+        <div class="program-item-val">להגיע, להשלים משימות שבועיות, לעזור לעצמנו ולקבוצה</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Rivka's tool -->
+  <div class="card">
+    <div class="card-title">🛠️ הסשן המיוחד שלנו</div>
+    <div class="tool-highlight">
+      <div class="tool-icon">⚡</div>
+      <div class="tool-body">
+        <div class="tool-head">רבקה בנתה כלי אינטראקטיבי לאיקיגאי</div>
+        <div class="tool-desc">
+          במקום למלא את שאלון האיקיגאי בגוגל דוקס, רבקה הקדימה לבנות כלי שמעביר את השאלות בצורה חווייתית — הכל בזמן אמת, במהלך המפגש. יאיר עבר דרך הכלי ומילא את השאלון המלא.
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Ikigai results -->
+  <div class="card">
+    <div class="card-title">🌸 האיקיגאי של יאיר</div>
+    <div class="ikigai-grid">
+      <div class="ikigai-circle love">
+        <div class="ikigai-label">מה שאני אוהב</div>
+        <ul class="ikigai-items">
+          <li>ליצור חיבורים בין אנשים</li>
+          <li>לראות רעיון הופך לדבר אמיתי</li>
+          <li>לעבוד עם אנשים שמרגישים שמשהו בוער בהם</li>
+          <li>מחשבה על ילדים ועתידם</li>
+        </ul>
+      </div>
+      <div class="ikigai-circle good">
+        <div class="ikigai-label">מה שאני טוב בו</div>
+        <ul class="ikigai-items">
+          <li>GTM וחדירה לשווקים חדשים</li>
+          <li>בניית אמון עם לקוחות ושותפים</li>
+          <li>הפיכת דברים מורכבים לפשוטים</li>
+          <li>מחקר משתמשים ועיצוב חוויה</li>
+        </ul>
+      </div>
+      <div class="ikigai-circle paid">
+        <div class="ikigai-label">ממה אפשר להרוויח</div>
+        <ul class="ikigai-items">
+          <li>ייעוץ GTM לחברות B2B קטנות</li>
+          <li>שיווק ומכירות לסטארטאפים בשלב מוקדם</li>
+          <li>כתיבה ותוכן ברמה גבוהה</li>
+        </ul>
+      </div>
+      <div class="ikigai-circle world">
+        <div class="ikigai-label">מה שהעולם צריך</div>
+        <ul class="ikigai-items">
+          <li>מוצרים שבאמת מועילים לילדים</li>
+          <li>פחות רעש שיווקי, יותר ערך אמיתי</li>
+          <li>עסקים שמביאים תוצאה, לא רק נראות</li>
+        </ul>
+      </div>
+    </div>
+    <div class="ikigai-poster-note">
+      📌 פוסטר האיקיגאי המלא של יאיר נוצר וסוכם — מוכן לשיתוף עם הקבוצה.
+    </div>
+  </div>
+
+  <!-- Quotes -->
+  <div class="card">
+    <div class="card-title">💬 מה אמרנו בסוף המפגש</div>
+    <div class="quotes-grid">
+      <div class="quote-item">
+        <div class="quote-text">נחמד להיכנס למוד יזמי</div>
+        <div class="quote-who">יאיר</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">ממש שמח שאנחנו עושים את זה ביחד</div>
+        <div class="quote-who">יאיר</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">מתרגש להכיל משהו ביחד ולראות לאן זה יגיע</div>
+        <div class="quote-who">יאיר</div>
+      </div>
+      <div class="quote-item">
+        <div class="quote-text">ממש כיף לעשות איתך</div>
+        <div class="quote-who">רבקה</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Next session -->
+  <div class="next-card">
+    <div>
+      <div class="next-label">המשך</div>
+      <div class="next-title">מפגש 2 — אימות הרעיון</div>
+      <div class="next-desc">מחקר שוק, הגדרת ה-ICP, ומה קלפלי פותרת בשביל מי.</div>
+    </div>
+    <div class="next-date-badge">
+      <div class="next-date-main">20.5.2026</div>
+      <div class="next-date-sub">רביעי · 17:00</div>
+    </div>
+  </div>
+
+  <div class="footer-note">
+    <a href="journey.html">← כל המסע</a> · Slashers · Tech Troop · קלפלי
+  </div>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Yair Felig — Product & GTM CV</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  @page {
+    size: letter portrait;
+    margin: 0;
+  }
+
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 9.5pt;
+    color: #111;
+    background: #f0efe9;
+  }
+
+  .page {
+    width: 216mm;
+    height: 279mm;
+    background: white;
+    margin: 24px auto;
+    padding: 10mm 13mm 10mm 13mm;
+    box-shadow: 0 2px 24px rgba(0,0,0,0.10);
+    overflow: hidden;
+  }
+
+  /* ── HEADER ── */
+  .header {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    border-bottom: 2px solid #111;
+    padding-bottom: 8px;
+    margin-bottom: 8px;
+  }
+  .header-photo {
+    flex-shrink: 0;
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #ccc;
+    background-image: url('photo.jpg');
+    background-size: 110%;
+    background-position: 80% 0%;
+  }
+  .header-text { flex: 1; }
+  .header h1 {
+    font-size: 19pt;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    color: #111;
+  }
+  .contact-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 3px 18px;
+    margin-top: 3px;
+    font-size: 8pt;
+    color: #444;
+    font-family: Arial, sans-serif;
+  }
+
+  /* ── SECTIONS ── */
+  .section {
+    margin-bottom: 7px;
+  }
+  .section-title {
+    font-size: 7.5pt;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1.8px;
+    color: #111;
+    border-bottom: 1px solid #111;
+    padding-bottom: 1px;
+    margin-bottom: 4px;
+    font-family: Arial, sans-serif;
+  }
+
+  /* ── EDUCATION ── */
+  .edu-item { margin-bottom: 3px; }
+  .edu-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+  }
+  .edu-school { font-weight: 700; font-size: 9.5pt; }
+  .edu-date { font-size: 8.5pt; color: #555; font-family: Arial, sans-serif; white-space: nowrap; }
+  .edu-degree { font-style: italic; font-size: 9pt; color: #222; margin-top: 1px; }
+  .edu-bullets { list-style: none; margin-top: 2px; }
+  .edu-bullets li {
+    font-size: 9pt; line-height: 1.38;
+    padding-left: 11px; position: relative;
+    color: #222; margin-bottom: 1px;
+  }
+  .edu-bullets li::before { content: '–'; position: absolute; left: 0; color: #555; }
+
+  /* ── EXPERIENCE ── */
+  .job { margin-bottom: 6px; }
+  .job-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 1px;
+  }
+  .job-org { font-weight: 700; font-size: 9.5pt; }
+  .job-date { font-size: 8.5pt; color: #555; font-family: Arial, sans-serif; white-space: nowrap; }
+  .job-title { font-style: italic; font-size: 9pt; color: #333; margin-bottom: 2px; }
+  .job-context { font-size: 8.5pt; color: #555; margin-bottom: 3px; font-family: Arial, sans-serif; }
+  .bullets { list-style: none; }
+  .bullets li {
+    font-size: 9pt; line-height: 1.38;
+    padding-left: 11px; position: relative;
+    color: #1a1a1a; margin-bottom: 1px;
+  }
+  .bullets li::before { content: '–'; position: absolute; left: 0; color: #666; }
+  strong { font-weight: 700; }
+
+  /* ── ACTIVITIES ── */
+  .activity {
+    display: flex; gap: 8px;
+    margin-bottom: 2px;
+    font-size: 9pt; line-height: 1.38;
+  }
+  .activity-name { font-weight: 700; white-space: nowrap; min-width: 210px; }
+  .activity-desc { color: #222; }
+
+  /* ── ADDITIONAL ── */
+  .skills-row {
+    display: flex; gap: 8px;
+    font-size: 9pt; line-height: 1.4;
+    margin-bottom: 1px;
+  }
+  .skills-label { font-weight: 700; min-width: 80px; color: #111; }
+
+  @media print {
+    body { background: white; }
+    .page { margin: 0; box-shadow: none; width: 100%; height: 100vh; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- HEADER -->
+  <div class="header">
+    <div class="header-photo"></div>
+    <div class="header-text">
+    <h1>Yair Felig</h1>
+    <div class="contact-row">
+      <span>yfelig@gmail.com</span>
+      <span>+972 52 597 2080</span>
+      <span>Tel Aviv, Israel</span>
+      <span>US Citizen</span>
+      <span>Hebrew &amp; English (both native)</span>
+    </div>
+    </div>
+  </div>
+
+  <!-- EXPERIENCE -->
+  <div class="section">
+    <div class="section-title">Experience</div>
+
+    <!-- UG Labs -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-org">UG Labs</span>
+        <span class="job-date">May 2022 – Present</span>
+      </div>
+      <div class="job-title">Product Operations &amp; Customer Success &nbsp;|&nbsp; Tel Aviv, Israel</div>
+      <div class="job-context">First employee at a conversational AI startup building voice-based characters for children in education and gaming. Company grew from 0 to 25 people.</div>
+      <ul class="bullets">
+        <li>Owned the full sales cycle on inbound leads: discovery, custom demo, follow-up, close. Built a working demo before every call — a real AI character, voice, and game specific to the prospect — so they'd already tried the product before we got on. Managing 15–20 active deals; closed the first independently</li>
+        <li>Designed the conversation logic for the product's first AI characters: scripted dialogue, built JSON conversation trees, defined character responses. In early testing, ran sessions manually as the character to observe how kids respond in real time before the AI existed</li>
+        <li>Ran the Kids Lab 2–3x a week for years — 1,200+ sessions with children across Israel and the US. Findings went directly back to the product team</li>
+        <li>Designed and ran a public workshop teaching parents and kids to build their own AI characters: concept, site, promotion, facilitation. Now being developed into a company product</li>
+        <li>Built the investor research package from 1,000+ sessions — structured, visualized, deployed for fundraising and partner conversations</li>
+        <li>Set up HubSpot from scratch; ran the annotation vendor RFQ; managed the Applause engagement (500+ sessions) as the company's sole contact</li>
+        <li>Spent 6 months alone in Boise, Idaho running a field operation with no existing contacts. Recruited locally, cold-called daycares, ran Facebook ads, came back with 500 sessions</li>
+      </ul>
+    </div>
+
+    <!-- IDF -->
+    <div class="job">
+      <div class="job-header">
+        <span class="job-org">Israel Defense Forces &mdash; Paratroopers, 101st Brigade</span>
+        <span class="job-date">6 years, ending 2019</span>
+      </div>
+      <div class="job-title">Company Commander &nbsp;|&nbsp; Current reserve rank: Major</div>
+      <ul class="bullets">
+        <li>Commanded 160 soldiers through training, from induction to combat readiness. Designed the program, managed the scheduling, owned every outcome. Six years rising through ranks to company commander</li>
+      </ul>
+    </div>
+
+  </div>
+
+  <!-- EDUCATION -->
+  <div class="section">
+    <div class="section-title">Education</div>
+    <div class="edu-item">
+      <div class="edu-row">
+        <span class="edu-school">Reichman University (IDC Herzliya)</span>
+        <span class="edu-date">2019 – 2022</span>
+      </div>
+      <div class="edu-degree">B.Sc. Psychology &mdash; GPA: 94/100 &nbsp;|&nbsp; Focus: Human-Computer Interaction &amp; Behavioral Research</div>
+      <ul class="edu-bullets">
+        <li>MILAB HCI Research Lab, 2.5 years. Started as a junior researcher, ended up running the study: design, execution, analysis, paper writing</li>
+        <li>Founded the Happiness Club. Weekly lectures on well-being, grew to 150+ members, the largest student club at IDC</li>
+        <li><strong>3rd Place, All-Israel National Debate Championship</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- LEADERSHIP & ACTIVITIES -->
+  <div class="section">
+    <div class="section-title">Leadership &amp; Activities</div>
+    <div class="activity">
+      <span class="activity-name">Hashomer Hachadash</span>
+      <span class="activity-desc">Responsible for 130 sheep and goats at 18, before military service</span>
+    </div>
+    <div class="activity">
+      <span class="activity-name">HaGal Sheli (The Wave Project)</span>
+      <span class="activity-desc">Facilitator, empowerment programs for youth trauma survivors (2025–present)</span>
+    </div>
+    <div class="activity">
+      <span class="activity-name">Reichman Alumni Mentoring Program</span>
+      <span class="activity-desc">Selected participant in post-graduate mentorship program</span>
+    </div>
+  </div>
+
+  <!-- ADDITIONAL -->
+  <div class="section">
+    <div class="section-title">Additional</div>
+    <div class="skills-row">
+      <span class="skills-label">Languages</span>
+      <span>Hebrew &amp; English (both native)</span>
+    </div>
+    <div class="skills-row">
+      <span class="skills-label">Tools</span>
+      <span>HubSpot (architecture &amp; automation), Apollo, Claude Code, n8n, Microsoft Office (advanced)</span>
+    </div>
+    <div class="skills-row">
+      <span class="skills-label">Technical</span>
+      <span>Conversational AI design, rapid demo prototyping, user research design, child safety benchmarking (KORA), data visualization</span>
+    </div>
+  </div>
+
+</div>
+</body>
+</html>
